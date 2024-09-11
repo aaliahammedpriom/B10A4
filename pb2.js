@@ -1,19 +1,6 @@
 function sendNotification(email) {
-    let email2 = '';
-    let email3 = '';
-    const index = email.indexOf('@');
-    if(index >= 0 ){  
-        for( let i = 0; i < index ; i++){
-            email2 = email2.concat(email[i]);
-        }
-        for( let i = index + 1; i < email.length ; i++){
-            email3 = email3.concat(email[i]);
-        }
-        return email2 + ' sent you an email from ' + email3;
-    }
-    else{
-        return 'Invalid Email'
-    }
+    const result = email.split('@');
+    return email.includes('@') == true ? result[0] + ' sent you an email from ' + result[1] : 'Invalid Input';
 }
 
 console.log(sendNotification('zihad@gmail.com'));

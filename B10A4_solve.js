@@ -1,75 +1,18 @@
 function calculateTax(income, expenses) {
-    if( income >= expenses && expenses >= 0 && income >= 0){
-        const dif = (income - expenses);
-        const tax = (dif *.20);
-        return tax;
-    }
-    else{
-        return 'Invalid Input';
-    }
+    return ( income >= expenses && expenses >= 0 && income >= 0) ? (income - expenses)*.20 : 'Invalid Input';
 }
 
 function sendNotification(email) {
-    let email2 = '';
-    let email3 = '';
-    const index = email.indexOf('@');
-    if(index >= 0 ){  
-        for( let i = 0; i < index ; i++){
-            email2 = email2.concat(email[i]);
-        }
-        for( let i = index + 1; i < email.length ; i++){
-            email3 = email3.concat(email[i]);
-        }
-        return email2 + ' sent you an email from ' + email3;
-    }
-    else{
-        return 'Invalid Email'
-    }
+    const result = email.split('@');
+    return email.includes('@') == true ? result[0] + ' sent you an email from ' + result[1] : 'Invalid Input';
 }
 
 function checkDigitsInName(name){
-    if( !Array.isArray(name) && typeof name == 'string' ){
-        if( name.includes(0) || name.includes(1) || name.includes(2) || name.includes(3) || name.includes(4) || name.includes(5) || name.includes(6) || name.includes(7) || name.includes(8) || name.includes(9) ){
-            return true;
-        }
-        else{
-            return false;
-        }
-       
-    }
-    else{
-        return 'Invalid Input';
-    }
+    return ( !Array.isArray(name) && typeof name == 'string' ) ? (( name.includes(0) || name.includes(1) || name.includes(2) || name.includes(3) || name.includes(4) || name.includes(5) || name.includes(6) || name.includes(7) || name.includes(8) || name.includes(9) ) ? true : false)  : 'Invalid Input' ;
 }
 
 function calculateFinalScore(obj){
-    let total ;
-    if(typeof obj == 'object' && !Array.isArray(obj)){
-        if(obj.testScore <=50 && obj.schoolGrade <=30 && obj.isFFamily == true){
-            total = obj.testScore + obj.schoolGrade + 20;
-            if(total >= 80){
-                return true;
-            }
-            else{
-                return false;
-            }
-        }
-        else if(obj.testScore <=50 && obj.schoolGrade <=30 && obj.isFFamily == false){
-            total = obj.testScore + obj.schoolGrade;
-            if(total >= 80){
-                return true;
-            }
-            else{
-                return false;
-            }
-        }
-        else{
-            return false;
-        }
-    }
-    else{
-        return 'Invalid Input';
-    }
+    return (typeof obj == 'object' && !Array.isArray(obj)) ? ((obj.testScore <=50 && obj.schoolGrade <=30 && obj.isFFamily == true) ? ((obj.testScore + obj.schoolGrade + 20)>= 80 ? true : false) : ((obj.testScore <=50 && obj.schoolGrade <=30 && obj.isFFamily == false)? ((obj.testScore + obj.schoolGrade)>= 80 ? true : false) :false)) : 'Invalid Input';
 
 }
 
