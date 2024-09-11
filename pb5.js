@@ -4,10 +4,8 @@ function  waitingTime(waitingTimes  , serialNumber){
         for(let waitTime of waitingTimes){
           totalTime = totalTime + waitTime;
         }
-        const avgTime = totalTime/ waitingTimes.length;
-        const pendingSerial = serialNumber - (waitingTimes.length + 1);
-        const time = pendingSerial* Math.round(avgTime);
-        return time;
+        
+        return(serialNumber - (waitingTimes.length + 1))* Math.round(totalTime/ waitingTimes.length);
     }
     else{
         return 'Invalid Input'
