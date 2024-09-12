@@ -4,7 +4,7 @@ function calculateTax(income, expenses) {
 
 function sendNotification(email) {
     const result = email.split('@');
-    return email.includes('@') == true ? result[0] + ' sent you an email from ' + result[1] : 'Invalid Input';
+    return result.length == 2 && email.includes('@') == true ? result[0] + ' sent you an email from ' + result[1] : 'Invalid Input';
 }
 
 function checkDigitsInName(name){
@@ -37,7 +37,9 @@ console.log(calculateTax(-5000,2000));
 console.log(calculateTax(6000,-1500));
 console.log('......................................................');
 console.log(sendNotification('zihad@gmail.com'));
+console.log(sendNotification('zihad@@gmail.com'));
 console.log(sendNotification('farhan34@yahoo.com'));
+console.log(sendNotification('far@han34@yahoo.com'));
 console.log(sendNotification('nadim.naem5@outlook.com'));
 console.log(sendNotification('fahim234.hotmail.com'));
 console.log(sendNotification('sadia8icloud.com'));
